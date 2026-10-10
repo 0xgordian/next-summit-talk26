@@ -567,3 +567,6 @@ li.done .chk svg{stroke-dashoffset:0}
 #s3 .tally .cos{gap:12px 30px}
 
 #s3 .tally .co.more b{color:var(--muted);font-weight:400}
+
+.wbar .slot:empty{display:none}
+.skipbtn{font-size:12px;opacity:.22;border-width:1px;padding:4px 10px}.skipbtn:hover{opacity:1}
