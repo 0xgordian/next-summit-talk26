@@ -129,7 +129,7 @@ let idle;addEventListener('mousemove',()=>{document.body.classList.remove('idle'
 /* ---------- slide controllers ---------- */
 CTL.s1={onStep(sl,st){if(st<0||!sl.classList.contains('active'))return;setPlanet(st===0?'title':'dim');$('.out',sl).classList.toggle('struck',st>=2);}};
 $$('#s1 .inh li, #s9 .check li').forEach(li=>li.addEventListener('click',e=>{e.stopPropagation();li.classList.toggle('done');}));
-const LOGS=['sign up · follow the guide · read the docs · note where I got stuck','docs · migration guides · developer resources','guides · dev tools · onboarding · AI agent integrations','product · DX · integrations · research · growth','still working toward it'];
+const LOGS=['small apps · demos · product teardowns · notes on where I got stuck','docs · guides · developer resources','dev tools · onboarding · AI agent integrations','product engineering · SDKs · apps · integrations · research · growth','still working toward it'];
 function s3log(sl,k){$('.pr',sl).textContent='$ cat lvl_0'+(k+1)+'.log';type($('.console .out',sl),LOGS[k],16,120);$$('.card',sl).forEach((c,j)=>c.classList.toggle('sel',j===k));}
 CTL.s3={onStep(sl,st){const tr=$('.track',sl),cells=$$('.levels>*',sl);let fill=0;
   if(st>=1&&st<=4){const c=cells[st-1];fill=c.offsetLeft+c.offsetWidth/2;}else if(st>=5)fill=tr.offsetWidth;
@@ -160,5 +160,5 @@ $$('#s12 .tile').forEach(t=>{lock(t);t.addEventListener('click',e=>{e.stopPropag
 /* ---------- boot ---------- */
 window.deck={go,next,prev,skip,toggleOverview,get cur(){return cur},get step(){return step},max:i=>maxStep(slides[i]),count:slides.length,
   settle(i){go(i,maxStep(slides[i]));}, get busy(){return busy}};
-document.fonts.ready.then(()=>{stage.classList.add('ready');const h=parseInt(location.hash.slice(1))||1;go(h-1);});
+document.fonts.ready.then(()=>{stage.classList.add('ready');const h=parseInt(location.hash.slice(1))||1;const fin=/max/.test(location.hash);go(h-1,fin&&slides[h-1]?(+slides[h-1].dataset.steps||0):0);});
 })();
