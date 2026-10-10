@@ -2,7 +2,7 @@
 
 My talk at Next Gen Summit, Uyo, October 10, 2026.
 
-**[Open the deck](https://summit-eight-sigma.vercel.app)** · [PDF](https://summit-eight-sigma.vercel.app/deck.pdf) · [Watch the preview video](https://0xgordian.github.io/next-summit-talk26/media/preview.mp4)
+**[Open the deck](https://summit-gordian.vercel.app)** · [PDF](https://summit-gordian.vercel.app/deck.pdf) · [Watch the preview video](https://0xgordian.github.io/next-summit-talk26/media/preview.mp4)
 
 [![Deck preview](media/preview.gif)](https://0xgordian.github.io/next-summit-talk26/media/preview.mp4)
 
