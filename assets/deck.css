@@ -541,3 +541,29 @@ li.done .chk svg{stroke-dashoffset:0}
 .app .r b{font-family:var(--mono);font-size:15px;letter-spacing:.14em;color:#06120d;background:var(--d-brand);padding:3px 8px;justify-self:end;font-weight:500}
 #s11 .wrong li{font-size:42px !important;min-height:104px !important}
 #s11 .foot{font-size:40px !important;margin-top:44px !important}
+#s3 .tally{position:absolute;left:-20px;right:-20px;padding:0 20px;top:636px;height:112px;z-index:3;background:var(--l-bg);display:flex;align-items:center;justify-content:space-between;gap:48px}
+#s3 .tally .nums{display:flex;gap:56px}
+#s3 .tally .nums div{display:flex;flex-direction:column;gap:6px}
+#s3 .tally b{font-size:56px;line-height:1;font-weight:500;letter-spacing:-.02em}
+#s3 .tally b.yes{color:var(--brand)}
+#s3 .tally .nums span{font-family:var(--mono,monospace);font-size:15px;letter-spacing:.12em;color:var(--muted)}
+#s3 .tally .who{max-width:620px;white-space:normal;flex:0 1 620px;font-size:15px;text-align:right;line-height:1.7;color:var(--muted)}
+
+#s3 .tally .who{display:flex;flex-direction:column;align-items:flex-end;gap:12px;max-width:none;text-align:right}
+#s3 .tally .who .u-label{font-size:15px;color:var(--muted)}
+#s3 .tally .cos{display:flex;gap:14px}
+#s3 .tally .cos img{width:46px;height:46px;border-radius:11px;object-fit:cover;display:block}
+
+#s3 .tally{height:128px;top:630px}
+#s3 .tally b{font-size:64px}
+#s3 .tally .who{gap:10px;align-items:flex-start;text-align:left}
+#s3 .tally .who .u-label{font-size:14px;letter-spacing:.16em}
+#s3 .tally .cos{display:grid;grid-template-columns:repeat(4,auto);gap:10px 26px}
+#s3 .tally .co{display:flex;align-items:center;gap:10px}
+#s3 .tally .co img{width:30px;height:30px;border-radius:8px}
+#s3 .tally .co b{font-size:19px;font-weight:500;letter-spacing:0;line-height:1;color:var(--foreground);font-family:inherit}
+#s3 .tally .co b{font-family:var(--sans);font-size:21px}
+#s3 .tally .co img{width:34px;height:34px}
+#s3 .tally .cos{gap:12px 30px}
+
+#s3 .tally .co.more b{color:var(--muted);font-weight:400}

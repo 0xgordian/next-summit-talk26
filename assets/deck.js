@@ -59,8 +59,8 @@ const DEMOS={
    const f=()=>{k++;if(k>=ws.length)return;sp.classList.add('up');T(el,()=>{sp.classList.remove('up');sp.classList.add('dn');sp.textContent=ws[k];void sp.offsetWidth;sp.classList.remove('dn');if(k<ws.length-1)T(el,f,750);},420);};T(el,f,1500);},
    finish(el){const ws=el.dataset.words.split('|');$('.sw',el).textContent=ws[ws.length-1];},reset(el){this.finish(el);}},
  loop:{run(el){let k=0;const tx=$('.tx',el),lb=$('.u-label',el),dots=$$('.dot',el),arc=$('.arc',el);
-   const f=()=>{lb.textContent='STAGE 0'+(k+1)+' / 07';type(tx,LOOP[k],24);dots.forEach((d,j)=>d.classList.toggle('on',j<=k));arc.style.strokeDashoffset=1131*(1-(k+1)/7);k=(k+1)%7;};f();IV(el,f,2800);},
-   finish(el){$('.u-label',el).textContent='STAGE 07 / 07';$('.tx',el).textContent=LOOP[6];$$('.dot',el).forEach(d=>d.classList.add('on'));$('.arc',el).style.strokeDashoffset=0;},
+   const f=()=>{lb.textContent='STEP '+(k+1)+' OF 7';type(tx,LOOP[k],24);dots.forEach((d,j)=>d.classList.toggle('on',j<=k));arc.style.strokeDashoffset=1131*(1-(k+1)/7);k=(k+1)%7;};f();IV(el,f,2800);},
+   finish(el){$('.u-label',el).textContent='STEP 7 OF 7';$('.tx',el).textContent=LOOP[6];$$('.dot',el).forEach(d=>d.classList.add('on'));$('.arc',el).style.strokeDashoffset=0;},
    reset(el){$$('.dot',el).forEach(d=>d.classList.remove('on'));$('.arc',el).style.strokeDashoffset=1131;$('.tx',el).textContent='';}},
  flip:{build(el){if(el._b)return;el._b=1;el.innerHTML='';'00:00:00'.split('').forEach(ch=>{const s=document.createElement('span');if(ch===':'){s.className='cl';s.textContent=':';}else{s.className='dg';s.innerHTML='<span></span>';}el.appendChild(s);});},
    set(el,str,anim){const dg=$$('.dg',el);str.replace(/:/g,'').split('').forEach((c,i)=>{const d=dg[i];const cur=d.dataset.v;if(cur===c)return;d.dataset.v=c;
@@ -88,7 +88,7 @@ function setPlanet(mode){planetEl.classList.remove('off','dim');if(mode==='off')
 const isLight=sl=>sl.classList.contains('light');
 let lastLvl=0;
 function hud(sl){const n=slides.indexOf(sl)+1;hudNum.textContent=String(n).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
-  const lvl=+sl.dataset.lvl;lvlTxt.textContent='LVL '+String(lvl).padStart(2,'0')+(lvl>=7?' · MAX':'');
+  const lvl=+sl.dataset.lvl;lvlTxt.textContent='LVL '+String(lvl).padStart(2,'0')+'';
   if(lvl!==lastLvl&&!STILL){lvlTxt.classList.remove('flash');void lvlTxt.offsetWidth;lvlTxt.classList.add('flash');}
   segs.forEach((s,k)=>{s.style.setProperty('--k',k);s.classList.toggle('on',k<lvl);s.classList.toggle('new',k===lvl-1&&lvl>lastLvl);});lastLvl=lvl;
   const hasNav=!!$('.secnav',sl);hudLabel.style.opacity=hasNav?0:1;type(hudLabel,hasNav?'':(sl.dataset.label||''),22,250);
@@ -129,7 +129,7 @@ let idle;addEventListener('mousemove',()=>{document.body.classList.remove('idle'
 /* ---------- slide controllers ---------- */
 CTL.s1={onStep(sl,st){if(st<0||!sl.classList.contains('active'))return;setPlanet(st===0?'title':'dim');$('.out',sl).classList.toggle('struck',st>=2);}};
 $$('#s1 .inh li, #s9 .check li').forEach(li=>li.addEventListener('click',e=>{e.stopPropagation();li.classList.toggle('done');}));
-const LOGS=['small apps · demos · product teardowns · notes on where I got stuck','docs · guides · developer resources','dev tools · onboarding · AI agent integrations','product engineering · SDKs · apps · integrations · research · growth','still working toward it'];
+const LOGS=['small apps · demos · product teardowns · notes on where I got stuck','docs · guides · developer resources','dev tools · onboarding · AI agent integrations','built Kuroko on their SDK · they reached out · now product engineering, SDKs, apps','still working toward it'];
 function s3log(sl,k){$('.pr',sl).textContent='$ cat lvl_0'+(k+1)+'.log';type($('.console .out',sl),LOGS[k],16,120);$$('.card',sl).forEach((c,j)=>c.classList.toggle('sel',j===k));}
 CTL.s3={onStep(sl,st){const tr=$('.track',sl),cells=$$('.levels>*',sl);let fill=0;
   if(st>=1&&st<=4){const c=cells[st-1];fill=c.offsetLeft+c.offsetWidth/2;}else if(st>=5)fill=tr.offsetWidth;
